@@ -3,23 +3,19 @@ import java.util.List;
 
 class Conferencia {
     private String nombre;
-    private List<Sesion> sesiones;
+    private List<Sesion> sesions;
 
     public Conferencia(String nombre) {
         this.nombre = nombre;
-        this.sesiones = new ArrayList<>();
+        this.sesions = new ArrayList<>();
     }
 
-    public void agregarSesion(Sesion sesion) {
-        sesiones.add(sesion);
+    public void anhadirSesion(Sesion sesion) {
+        sesions.add(sesion);
     }
 
-    public void eliminarSesion(Sesion sesion) {
-        sesiones.remove(sesion);
-    }
-
-    public List<Sesion> getSesiones() {
-        return sesiones;
+    public void borrarSesion(Sesion sesion) {
+        sesions.remove(sesion);
     }
 }
 
@@ -38,29 +34,23 @@ class Sesion {
         this.articulos = new ArrayList<>();
     }
 
-    public void agregarParticipante(Participante participante) {
+    public void anhadirParticipante(Participante participante) {
         participantes.add(participante);
     }
 
-    public void eliminarParticipante(Participante participante) {
+    public void borrarParticipante(Participante participante) {
         participantes.remove(participante);
     }
 
-    public List<Participante> getParticipantes() {
-        return participantes;
-    }
-
-    public void agregarArticulo(Articulo articulo) {
+    public void anhadirArticulo(Articulo articulo) {
         articulos.add(articulo);
     }
 
-    public void eliminarArticulo(Articulo articulo) {
+    public void borrarArticulo(Articulo articulo) {
         articulos.remove(articulo);
     }
 
-    public List<Articulo> getArticulos() {
-        return articulos;
-    }
+
 }
 
 class Participante {
@@ -75,36 +65,33 @@ class Participante {
 
 class Articulo {
     private String titulo;
-    private boolean esLargo;
+    private String tamaño;
     private String tema;
 
-    public Articulo(String titulo, boolean esLargo, String tema) {
+    public Articulo(String titulo, String tamaño, String tema) {
         this.titulo = titulo;
-        this.esLargo = esLargo;
+        this.tamaño = tamaño;
         this.tema = tema;
     }
 }
 
-class Autor {
+class Autor extends Participante{
     private String nombre;
     private List<Articulo> articulos;
 
-    public Autor(String nombre) {
+    public Autor(String nombre, boolean esOrador) {
+        super(nombre, esOrador);
         this.nombre = nombre;
         this.articulos = new ArrayList<>();
     }
 
-    // Métodos para añadir y eliminar artículos
 
-    public void agregarArticulo(Articulo articulo) {
+    public void anhadirArticulo(Articulo articulo) {
         articulos.add(articulo);
     }
 
-    public void eliminarArticulo(Articulo articulo) {
+    public void borrarArticulo(Articulo articulo) {
         articulos.remove(articulo);
     }
 
-    public List<Articulo> getArticulos() {
-        return articulos;
-    }
 }
